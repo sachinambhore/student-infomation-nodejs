@@ -1,0 +1,31 @@
+name: Deploy nodejs on ec2 instance
+
+on: 
+  push:
+    branches: 
+      - main
+
+jobs:
+  deploy:  
+    runs-on:  ubuntu-22.04
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v6.0.2
+      - name:  doploy via ssh
+        uses: saranraj3195/sparkout-deployment@v2
+        with:
+          # SSH private key for authentication
+          DEPLOY_KEY: 
+          # SSH username
+          USERNAME: 
+          # IP address of the server
+          SERVER_IP: 
+          # SSH port of the server
+          SERVER_PORT: 
+          # Destination directory on the server
+          SERVER_DESTINATION: 
+          # Additional rsync arguments
+          ARGS: # optional
+          # Folder to deploy
+          FOLDER: # optional
