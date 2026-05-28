@@ -19,4 +19,8 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
-
+          script: |
+            cd /home/ec2-user/student-infomation-nodejs
+            git pull origin main
+            npm install
+            pm2 restart all
