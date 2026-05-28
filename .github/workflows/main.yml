@@ -16,16 +16,13 @@ jobs:
         uses: saranraj3195/sparkout-deployment@v2
         with:
           # SSH private key for authentication
-          DEPLOY_KEY: 
+          DEPLOY_KEY: ${secrets.PRIVATE_KEY}
           # SSH username
-          USERNAME: 
+          USERNAME: ec2-user
           # IP address of the server
-          SERVER_IP: 
+          SERVER_IP: "3.14.4.202"
           # SSH port of the server
-          SERVER_PORT: 
+          SERVER_PORT: "3000"
           # Destination directory on the server
-          SERVER_DESTINATION: 
-          # Additional rsync arguments
-          ARGS: # optional
-          # Folder to deploy
-          FOLDER: # optional
+          SERVER_DESTINATION: /home/ec2-user/student-infomation-nodejs
+
