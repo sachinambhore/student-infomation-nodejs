@@ -13,16 +13,10 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v6.0.2
       - name:  doploy via ssh
-        uses: saranraj3195/sparkout-deployment@v2
+        uses: appleboy/ssh-action@v1.0.3
         with:
-          # SSH private key for authentication
-          DEPLOY_KEY: ${secrets.PRIVATE_KEY}
-          # SSH username
-          USERNAME: ec2-user
-          # IP address of the server
-          SERVER_IP: "3.14.4.202"
-          # SSH port of the server
-          SERVER_PORT: "22"
-          # Destination directory on the server
-          SERVER_DESTINATION: /home/ec2-user/student-infomation-nodejs
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
 
