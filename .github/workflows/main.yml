@@ -22,5 +22,4 @@ jobs:
           script: |
             cd /home/ec2-user/student-infomation-nodejs
             git pull origin main
-            npm install
-            pm2 restart all
+            pm2 start app.js --name student-app
